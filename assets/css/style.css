@@ -1,0 +1,52 @@
+body{
+    background-image: url("https://images.alphacoders.com/107/107611.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+h1, p {
+    text-align: center;
+    color: white;
+}
+
+.players {
+    border: solid blue 2px;
+    text-align: center;
+    color: white;
+    background: blue;
+}
+.spots {
+    border: solid greenyellow 2px;
+    text-align: center;
+    color: white;
+}
+.button {
+    text-align: center;
+    margin: 10px;
+}
+.resetbutton{
+    height: 100px;
+}
+.playarea {
+    height: 200px;
+}
+.buttoncol{
+    height: 200px;
+}
+#gameAction{
+    color: red;
+}
+.inplay {
+    border: solid green 2px;
+    text-align: center;
+    color: white;
+    background: green;
+}
+
+.defending {
+    border: solid red 2px;
+    text-align: center;
+    color: white;
+    background: red;
+}

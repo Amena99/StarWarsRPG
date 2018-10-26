@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Star Wars Game</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Added link to the JQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="toptext">Pick a player to begin!</h1>
+        </div>
+        <div class="row">
+
+            <div class="col-md-3" id="ObiContainer" >
+                <div class="card mt-2 players" id="ObiWan">
+                    <img class="card-img-top" src="https://i.kinja-img.com/gawker-media/image/upload/s--6oBFTK_i--/c_scale,f_auto,fl_progressive,q_80,w_800/kz8kvwoedn6wtqlihjqu.jpg" alt="Card image cap" style="width:100%; height:100px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Obi-Wan Kenobi</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Health: 120</h6>
+                        <p class="card-text">Attack Pwr: 6</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card mt-2 players" id="LukSky">
+                    <img class="card-img-top" src="https://uain.press/_uploads/2018/09/Hayden-Christensen-Star-Wars-Episode-8-Anakin-Skywalker-Ghost.jpg" alt="Card image cap" style="width:100%; height:100px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Luke Skywalker</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Health: 100</h6>
+                        <p class="card-text">Attack Pwr: 15</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card mt-2 players" id="DarSid">
+                        <img class="card-img-top" src="https://usercontent2.hubstatic.com/14081179_f520.jpg" alt="Card image cap" style="width:100%; height:100px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Darth Sidious</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Health: 150</h6>
+                        <p class="card-text">Attack Pwr: 10</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card mt-2 players" id="DarMau">
+                        <img class="card-img-top" src="https://i.pinimg.com/originals/50/cf/52/50cf523c61d5dd8206a0af32014ec415.jpg" alt="Card image cap" style="width:100%; height:100px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Darth Maul</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Health: 180</h6>
+                        <p class="card-text">Attack Pwr: 13</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4" id="player">
+                <h1>Your Character:</h1>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4" id="defender">
+                <h1>Defender:</h1>
+            </div>
+        </div>
+        <div class="row playarea">
+
+            <div class="col-md-4 spots" style="height:250px">
+                <div class="card mt-2" id="playerlocation"></div>
+            </div>
+
+            
+            <div class="col-md-4 buttoncol">
+                <div class="row button">
+                    <button type="button" class="btn btn-danger" id="attackb">Attack!</button>
+                </div>
+                <div class="row button" id="gameAction">
+                    <p >
+                        <h2 class="gameAction">You attacked + + DarthMaul</h2>
+                    </p>
+                </div>
+                <div class="row"></div>
+                <div class="row resetbutton">
+                    <div class="row button">
+                        <button type="button" class="btn btn-primary">Play Again</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 spots" style="height:250px">
+                <div class="card mt-2" id="enemylocation"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Link to the Javascript File -->
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+
+</html>
