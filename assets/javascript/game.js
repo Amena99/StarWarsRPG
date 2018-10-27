@@ -5,187 +5,388 @@ var player3Div = $("<div>");
 var player4Div = $("<div>");
 var i = 1;
 var attackswitch = true;
+var ObiH = 0;
 
-pickPlayer();
-//function that moves player and defender into correct places
-function pickPlayer () {
+$(document).ready(function () {
 
-// if (attackswitch)  {  
-$("#ObiWan").on("click", function(){
-    
-    console.log("This click is working.");
-    if ($("#playerlocation").html()=="") {
-        console.log("Entered ObiWan if");
-     playerDiv.append($(this));
-     $("#playerlocation").append(playerDiv);
-     playerDiv.addclass("inplay");
-    $(".toptext").text("Select an Enemy to Attack:");
-    }
-    else {
-        console.log("Entered ObiWan else");
-        if ($("#enemylocation").html()==""){
-            console.log("Entered ObiWan if2");
-            playerDiv.attr("class", "defending");
-            playerDiv.append($(this));
-            $("#enemylocation").append(playerDiv);
-            
-           }
-    }
-});
 
-$("#LukSky").on("click", function(){ 
-    console.log("This click is working.");
-    if ($("#playerlocation").html()==""){ 
-        console.log("Entered LukSky if");
-      playerlDiv.append($(this));
-      playerlDiv.addclass("inplay");
-      $("#playerlocation").append(playerlDiv);
-    $(".toptext").text("Select an Enemy to Attack:");
-    }
-    else {
-        console.log("Entered LukSky else");
-       if ($("#enemylocation").html()==""){
-        console.log("Entered LukSky if2");
-        playerlDiv.attr("class", "defending");
-        playerlDiv.append($(this));
-        $("#enemylocation").append(playerlDiv);
-       
-       }
-    }
-});
 
-$("#DarSid").on("click", function(){
-    console.log("This click is working.");
-    if ($("#playerlocation").html()==""){
-        console.log("Entered DarSid if");
-    player3Div.append($(this));
-    $("#playerlocation").append(player3Div);
-    player3Div.addclass("inplay");
-    $(".toptext").text("Select an Enemy to Attack:");
-    }
-    else {
-        console.log("Entered DarthSid else");
-        if ($("#enemylocation").html()==""){
-            console.log("Entered DarthSid if2");
-            player3Div.attr("class", "defending");
-            player3Div.append($(this));
-            $("#enemylocation").append(player3Div);
-           }
-    }
-});
+    //function that moves player and defender into correct places
+    function pickPlayer() {
 
-$("#DarMau").on("click", function(){
-    console.log("This click is working.");
-    if ($("#playerlocation").html()=="") {
-        console.log("Entered DarthMaul if");
-    player4Div.append($(this));
-    $("#playerlocation").append(player4Div);
-    // player4Div.addclass("inplay");
-    $(".toptext").text("Select an Enemy to Attack:");
-    }
-    else {
-        console.log("Entered DarthMaul else");
-        if ($("#enemylocation").html()==""){
-            console.log("Entered DarthMaul if2");
-            player4Div.attr("class", "defending");
-            player4Div.append($(this));
-            $("#enemylocation").append(player4Div);
-           }
-    }
-});
+
+        $("#ObiWan").on("click", function () {
+
+            console.log("This click is working.");
+            if ($("#playerlocation").html() == "") {
+                console.log("Entered ObiWan if");
+                playerDiv.append($(this));
+                $("#playerlocation").append(playerDiv);
+                // playerDiv.addclass("inplay");
+                $(".toptext").text("Select an Enemy to Attack:");
+            }
+            else {
+                console.log("Entered ObiWan else");
+                if ($("#enemylocation").html() == "") {
+                    console.log("Entered ObiWan if2");
+                    playerDiv.attr("class", "defending");
+                    playerDiv.append($(this));
+                    $("#enemylocation").append(playerDiv);
+                    attackswitch = true;
+                }
+            }
+        });
+
+        $("#LukSky").on("click", function () {
+            console.log("This click is working.");
+            if ($("#playerlocation").html() == "") {
+                console.log("Entered LukSky if");
+                playerlDiv.append($(this));
+                $("#playerlocation").append(playerlDiv);
+                // playerlDiv.addclass("inplay");
+                $(".toptext").text("Select an Enemy to Attack:");
+            }
+            else {
+                console.log("Entered LukSky else");
+                if ($("#enemylocation").html() == "") {
+                    console.log("Entered LukSky if2");
+                    playerlDiv.attr("class", "defending");
+                    playerlDiv.append($(this));
+                    $("#enemylocation").append(playerlDiv);
+                    attackswitch = true;
+                }
+            }
+        });
+
+        $("#DarSid").on("click", function () {
+            console.log("This click is working.");
+            if ($("#playerlocation").html() == "") {
+                console.log("Entered DarSid if");
+                player3Div.append($(this));
+                $("#playerlocation").append(player3Div);
+                // player3Div.addclass("inplay");
+                $(".toptext").text("Select an Enemy to Attack:");
+            }
+            else {
+                console.log("Entered DarthSid else");
+                if ($("#enemylocation").html() == "") {
+                    console.log("Entered DarthSid if2");
+                    player3Div.attr("class", "defending");
+                    player3Div.append($(this));
+                    $("#enemylocation").append(player3Div);
+                    attackswitch = true;
+                }
+            }
+        });
+
+        $("#DarMau").on("click", function () {
+            console.log("This click is working.");
+            if ($("#playerlocation").html() == "") {
+                console.log("Entered DarthMaul if");
+                player4Div.append($(this));
+                $("#playerlocation").append(player4Div);
+                // player4Div.addclass("inplay");
+                $(".toptext").text("Select an Enemy to Attack:");
+            }
+            else {
+                console.log("Entered DarthMaul else");
+                if ($("#enemylocation").html() == "") {
+                    console.log("Entered DarthMaul if2");
+                    player4Div.attr("class", "defending");
+                    player4Div.append($(this));
+                    $("#enemylocation").append(player4Div);
+                    attackswitch = true;
+                }
+            }
+        });
+
+        resetfunc();
     };
 
 
-var Obi = {
-    firstname: "Obiwan",
-    lastname: "Kenobi",
-    attackpwr: 6,
-    health: 120,
-    obvsdm: function() {
-        DarthM.health = (DarthM.health - (13*i));
-        this.health = (this.health - 10);
-        console.log(Obi.health);
-        console.log(this.health);
-    }
-};
+    var Obi = {
+        firstname: "Obiwan",
+        lastname: "Kenobi",
+        attackpwr: 6,
+        health: 120,
+        counter_attack: 25,
+        obvsdm: function () {
+            DarthM.health = (DarthM.health - (this.attackpwr * i));
+            this.health = (this.health - DarthM.counter_attack);
+            $(".gameAction").text("You attacked Darth Maul for  " + (this.attackpwr * i) + " damage." + " Darth Maul attacked you for " + DarthM.counter_attack + " damage.");
+            $("#ObiHealth").text(this.health);
+            $("#DMHealth").text(DarthM.health);
+            checkdeath(this);
+            checkdefeat(DarthM);
+        },
+        obvsls: function () {
+            Luke.health = (Luke.health - (this.attackpwr * i));
+            this.health = (this.health - Luke.counter_attack);
+            $(".gameAction").text("You attacked Luke Skywalker for  " + (this.attackpwr * i) + " damage." + " Luke Skywalker attacked you for " + Luke.counter_attack + " damage.");
+            $("#ObiHealth").text(this.health);
+            $("#LukeHealth").text(Luke.health);
+            checkdeath(this);
+            checkdefeat(Luke);
+        },
+        obvsds: function () {
+            DarthS.health = (DarthS.health - (this.attackpwr * i));
+            this.health = (this.health - DarthS.counter_attack);
+            $(".gameAction").text("You attacked Darth Sidious for  " + (this.attackpwr * i) + " damage." + " Darth Sidious attacked you for " + DarthS.counter_attack + " damage.");
+            $("#ObiHealth").text(this.health);
+            $("#DSHealth").text(DarthS.health);
+            checkdeath(this);
+            checkdefeat(DarthS);
+        },
+    };
 
-var Luke = {
-    firstname: "Luke",
-    lastname: "Skywalker",
-    attackpwr: 15,
-    health: 100
-};
+    var Luke = {
+        firstname: "Luke",
+        lastname: "Skywalker",
+        attackpwr: 15,
+        health: 100,
+        counter_attack: 40,
+        lsvsdm: function () {
+            DarthM.health = (DarthM.health - (this.attackpwr * i));
+            this.health = (this.health - DarthM.counter_attack);
+            $(".gameAction").text("You attacked Darth Maul for  " + (this.attackpwr * i) + " damage." + " Darth Maul attacked you for " + DarthM.counter_attack + " damage.");
+            $("#LukeHealth").text(this.health);
+            $("#DMHealth").text(DarthM.health);
+            checkdeath(this);
+            checkdefeat(DarthM);
+        },
+        lsvsob: function () {
+            Obi.health = (Obi.health - (this.attackpwr * i));
+            this.health = (this.health - Obi.counter_attack);
+            $(".gameAction").text("You attacked Obiwan Kenobi for  " + (this.attackpwr * i) + " damage." + " Obiwan Kenobi attacked you for " + Obi.counter_attack + " damage.");
+            $("#LukeHealth").text(this.health);
+            $("#ObiHealth").text(Obi.health);
+            checkdeath(this);
+            checkdefeat(Obi);
+        },
+        lsvsds: function () {
+            DarthS.health = (DarthS.health - (this.attackpwr * i));
+            this.health = (this.health - DarthS.counter_attack);
+            $(".gameAction").text("You attacked Darth Sidious for  " + (this.attackpwr * i) + " damage." + " Darth Sidious attacked you for " + DarthS.counter_attack + " damage.");
+            $("#LukeHealth").text(this.health);
+            $("#DSHealth").text(DarthS.health);
+            checkdeath(this);
+            checkdefeat(DarthS);
+        },
+    };
 
-var DarthS = {
-    firstname: "Darth",
-    lastname: "Sidious",
-    attackpwr: 10,
-    health: 150
-};
+    var DarthS = {
+        firstname: "Darth",
+        lastname: "Sidious",
+        attackpwr: 10,
+        health: 150,
+        counter_attack: 20,
+        dsvsdm: function () {
+            DarthM.health = (DarthM.health - (this.attackpwr * i));
+            this.health = (this.health - DarthM.counter_attack);
+            $(".gameAction").text("You attacked Darth Maul for  " + (this.attackpwr * i) + " damage." + " Darth Maul attacked you for " + DarthM.counter_attack + " damage.");
+            $("#DSHealth").text(this.health);
+            $("#DMHealth").text(DarthM.health);
+            checkdeath(this);
+            checkdefeat(DarthM);
+        },
+        dsvsls: function () {
+            Luke.health = (Luke.health - (this.attackpwr * i));
+            this.health = (this.health - Luke.counter_attack);
+            $(".gameAction").text("You attacked Luke Skywalker for  " + (this.attackpwr * i) + " damage." + " Luke Skywalker attacked you for " + Luke.counter_attack + " damage.");
+            $("#DSHealth").text(this.health);
+            $("#LukeHealth").text(Luke.health);
+            checkdeath(this);
+            checkdefeat(Luke);
+        },
+        dsvsob: function () {
+            Obi.health = (Obi.health - (this.attackpwr * i));
+            this.health = (this.health - Obi.counter_attack);
+            $(".gameAction").text("You attacked Obiwan Kenobi for  " + (this.attackpwr * i) + " damage." + " Obiwan Kenobi attacked you for " + Obi.counter_attack + " damage.");
+            $("#DSHealth").text(this.health);
+            $("#ObiHealth").text(Obi.health);
+            checkdeath(this);
+            checkdefeat(Obi);
+        },
+    };
 
-var DarthM = {
-    firstname: "Darth",
-    lastname: "Maul",
-    attackpwr: 13,
-    health: 180,
-    dmvsob: function() {
-        Obi.health = (Obi.health - (13*i));
-        this.health = (this.health - 6);
-        $(".gameAction").text(Obi.health);
-        console.log(this.health);
-        checkdeath (this);
-        checkdefeat (Obi);
-    },
-    dmvsls: function() {
-        Luke.health = (Luke.health - (13*i));
-        this.health = (this.health - 15);
-        console.log(Obi.health);
-        console.log(this.health);
-        checkdeath (this);
-        checkdefeat(Luke);
-    },
-    dmvsds: function() {
-        DarthS.health = (DarthS.health - (13*i));
-        this.health = (this.health - 10);
-        $(".gameAction").text(DarthS.health);
-        console.log(this.health);
-        checkdeath (this);
-        checkdefeat(DarthS);
-    }
-    
-};
+    var DarthM = {
+        firstname: "Darth",
+        lastname: "Maul",
+        attackpwr: 13,
+        health: 180,
+        counter_attack: 15,
+        dmvsob: function () {
+            Obi.health = (Obi.health - (this.attackpwr * i));
+            this.health = (this.health - Obi.counter_attack);
+            $(".gameAction").text("You attacked Obiwan Kenobi for  " + (this.attackpwr * i) + " damage." + " Obiwan Kenobi attacked you for " + Obi.counter_attack + " damage.");
+            $("#DMHealth").text(this.health);
+            $("#ObiHealth").text(Obi.health);
+            checkdeath(this);
+            checkdefeat(Obi);
+        },
+        dmvsls: function () {
+            Luke.health = (Luke.health - (this.attackpwr * i));
+            this.health = (this.health - Luke.counter_attack);
+            $(".gameAction").text("You attacked Luke Skywalker for  " + (this.attackpwr * i) + " damage." + " Luke Skywalker attacked you for " + Luke.counter_attack + " damage.");
+            $("#DMHealth").text(this.health);
+            $("#LukeHealth").text(Luke.health);
+            checkdeath(this);
+            checkdefeat(Luke);
+        },
+        dmvsds: function () {
+            DarthS.health = (DarthS.health - (this.attackpwr * i));
+            this.health = (this.health - DarthS.counter_attack);
+            $(".gameAction").text("You attacked Darth Sidious for  " + (this.attackpwr * i) + " damage." + " Darth Sidious attacked you for " + DarthS.counter_attack + " damage.");
+            $("#DMHealth").text(this.health);
+            $("#DSHealth").text(DarthS.health);
+            checkdeath(this);
+            checkdefeat(DarthS);
+        }
 
-console.log(DarthS);
-console.log(Luke);
-console.log(Obi);
-console.log(DarthM);
+    };
+    $("#ObiHealth").text(Obi.health);
+    $("#LukeHealth").text(Luke.health);
+    $("#DSHealth").text(DarthS.health);
+    $("#DMHealth").text(DarthM.health);
+    // console.log(DarthS);
+    // console.log(Luke);
+    // console.log(Obi);
+    // console.log(DarthM);
 
-function attack (){
-    $("#attackb").on("click", function(){
-       console.log("This attack button is working.");
-       if (attackswitch){
-       if ($("#playerlocation").find(player4Div).length == 1 && $("#enemylocation").find(playerDiv).length == 1){ 
-        console.log("entered DM vs Ob IF");
-        DarthM.dmvsob();
-        i++;
-    }}})};
-attack();
+    function attack() {
+        $("#attackb").on("click", function () {
+            console.log("This attack button is working.");
+            if (attackswitch) {
+                if ($("#playerlocation").find(player4Div).length == 1 && $("#enemylocation").find(playerDiv).length == 1) {
+                    console.log("entered DM vs Ob IF");
+                    DarthM.dmvsob();
+                    i++;
+                }
+                if ($("#playerlocation").find(player4Div).length == 1 && $("#enemylocation").find(playerlDiv).length == 1) {
+                    console.log("entered DM vs DS IF");
+                    DarthM.dmvsls();
+                    i++;
+                }
+                if ($("#playerlocation").find(player4Div).length == 1 && $("#enemylocation").find(player3Div).length == 1) {
+                    console.log("entered DM vs LS IF");
+                    DarthM.dmvsds();
+                    i++;
+                }
+                if ($("#playerlocation").find(playerDiv).length == 1 && $("#enemylocation").find(player4Div).length == 1) {
+                    console.log("entered OW vs DM IF");
+                    Obi.obvsdm();
+                    i++;
+                }
+                if ($("#playerlocation").find(playerDiv).length == 1 && $("#enemylocation").find(playerlDiv).length == 1) {
+                    console.log("entered OW vs LS IF");
+                    Obi.obvsls();
+                    i++;
+                }
+                if ($("#playerlocation").find(playerDiv).length == 1 && $("#enemylocation").find(player3Div).length == 1) {
+                    console.log("entered OW vs DS IF");
+                    Obi.obvsds();
+                    i++;
+                }
+                if ($("#playerlocation").find(playerlDiv).length == 1 && $("#enemylocation").find(player4Div).length == 1) {
+                    console.log("entered LS vs DM IF");
+                    Luke.lsvsdm();
+                    i++;
+                }
+                if ($("#playerlocation").find(playerlDiv).length == 1 && $("#enemylocation").find(playerDiv).length == 1) {
+                    console.log("entered LS vs OW IF");
+                    Luke.lsvsob();
+                    i++;
+                }
+                if ($("#playerlocation").find(playerlDiv).length == 1 && $("#enemylocation").find(player3Div).length == 1) {
+                    console.log("entered LS vs DS IF");
+                    Luke.lsvsds();
+                    i++;
+                }
+                if ($("#playerlocation").find(player3Div).length == 1 && $("#enemylocation").find(playerDiv).length == 1) {
+                    console.log("entered DS vs OW IF");
+                    DarthS.dsvsob();
+                    i++;
+                }
+                if ($("#playerlocation").find(player3Div).length == 1 && $("#enemylocation").find(playerlDiv).length == 1) {
+                    console.log("entered DS vs LS IF");
+                    DarthS.dsvsls();
+                    i++;
+                }
+                if ($("#playerlocation").find(player3Div).length == 1 && $("#enemylocation").find(player4Div).length == 1) {
+                    console.log("entered DS vs DM IF");
+                    DarthS.dsvsdm();
+                    i++;
+                }
+            }
+        })
+    };
+    attack();
 
-function checkdeath (fighter) {
-    if (fighter.health<1){
-        $(".gameAction").text("You have depleted health. You lose!");
-        attackwitch = false;
-    }};
-
-    function checkdefeat (enemy) {
-        if (enemy.health<1){
-            $(".gameAction").text("You have defeated " + enemy.firstname + " " + enemy.lastname + "! ");
-            $("#ObiContainer").append(playerDiv);
-            $("#ObiContainer").children().css("visibility", "hidden");
-            
-            attackswitch = false;
+    function checkdeath(fighter) {
+        if (fighter.health < 1) {
+            $(".gameAction").text("You have depleted health. You lose!");
+            attackwitch = false;
         }
     };
-    checkdefeat(Obi);
 
+    function checkdefeat(enemy) {
+        if (enemy.health < 1) {
+            $(".gameAction").text("You have defeated " + enemy.firstname + " " + enemy.lastname + "! ");
+            attackswitch = false;
+            disappear();
+        }
+    };
+
+    function disappear() {
+        if (Obi.health < 1 && $("#enemylocation").find(playerDiv).length == 1) {
+            $(".ObiCont").append(playerDiv);
+            $(".ObiCont").children().css("visibility", "hidden");
+        }
+        if (Luke.health < 1 && $("#enemylocation").find(playerlDiv).length == 1) {
+            $(".LukSkyCont").append(playerlDiv);
+            $(".LukSkyCont").children().css("visibility", "hidden");
+        }
+        if (DarthS.health < 1 && $("#enemylocation").find(player3Div).length == 1) {
+            $(".DarSidCont").append(player3Div);
+            $(".DarSidCont").children().css("visibility", "hidden");
+        }
+        if (DarthM.health < 1 && $("#enemylocation").find(player4Div).length == 1) {
+            $(".DarMauCont").append(player4Div);
+            $(".DarMauCont").children().css("visibility", "hidden");
+        }
+    };
+
+function resetfunc () {
+    $(".resetb").on("click", function () {
+        // console.log("Reset button is working.");
+        // pickPlayer();
+        // $(".ObiCont").append(playerDiv);
+        // $(".ObiCont").children().css("visibility", "visible");
+        // $(".LukSkyCont").append(playerlDiv);
+        // $(".LukSkyCont").children().css("visibility", "visible");
+        // $(".DarSidCont").append(player3Div);
+        // $(".DarSidCont").children().css("visibility", "visible");
+        // $(".DarMauCont").append(player4Div);
+        // $(".DarMauCont").children().css("visibility", "visible");
+        // ObiH = 120;
+        // Obi.health = 120;
+        // Luke.health = 100;
+        // DarthS.health = 150;
+        // DarthM.health = 180;
+        // console.log(Obi.health);
+        // console.log(Luke.health);
+        // console.log(DarthM.health);
+        // console.log(DarthS.health);
+        // updatehealth();
+        location.reload();
+    })};
     
+    pickPlayer();
+  
+
+
+    function updatehealth () {
+    console.log("This is inside the reset function" + ObiH);
+}
+console.log("This is outside the reset function" + ObiH);
+});
