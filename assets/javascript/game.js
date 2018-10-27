@@ -111,31 +111,34 @@ $(document).ready(function () {
         health: 120,
         counter_attack: 25,
         obvsdm: function () {
+            if (this.health>0){
             DarthM.health = (DarthM.health - (this.attackpwr * i));
             this.health = (this.health - DarthM.counter_attack);
             $(".gameAction").text("You attacked Darth Maul for  " + (this.attackpwr * i) + " damage." + " Darth Maul attacked you for " + DarthM.counter_attack + " damage.");
             $("#ObiHealth").text(this.health);
             $("#DMHealth").text(DarthM.health);
             checkdeath(this);
-            checkdefeat(DarthM);
+            checkdefeat(DarthM);};
         },
         obvsls: function () {
+            if (this.health>0){
             Luke.health = (Luke.health - (this.attackpwr * i));
             this.health = (this.health - Luke.counter_attack);
             $(".gameAction").text("You attacked Luke Skywalker for  " + (this.attackpwr * i) + " damage." + " Luke Skywalker attacked you for " + Luke.counter_attack + " damage.");
             $("#ObiHealth").text(this.health);
             $("#LukeHealth").text(Luke.health);
             checkdeath(this);
-            checkdefeat(Luke);
+            checkdefeat(Luke);};
         },
         obvsds: function () {
+            if (this.health>0){
             DarthS.health = (DarthS.health - (this.attackpwr * i));
             this.health = (this.health - DarthS.counter_attack);
             $(".gameAction").text("You attacked Darth Sidious for  " + (this.attackpwr * i) + " damage." + " Darth Sidious attacked you for " + DarthS.counter_attack + " damage.");
             $("#ObiHealth").text(this.health);
             $("#DSHealth").text(DarthS.health);
             checkdeath(this);
-            checkdefeat(DarthS);
+            checkdefeat(DarthS);};
         },
     };
 
@@ -146,31 +149,34 @@ $(document).ready(function () {
         health: 100,
         counter_attack: 40,
         lsvsdm: function () {
+            if (this.health>0){
             DarthM.health = (DarthM.health - (this.attackpwr * i));
             this.health = (this.health - DarthM.counter_attack);
             $(".gameAction").text("You attacked Darth Maul for  " + (this.attackpwr * i) + " damage." + " Darth Maul attacked you for " + DarthM.counter_attack + " damage.");
             $("#LukeHealth").text(this.health);
             $("#DMHealth").text(DarthM.health);
             checkdeath(this);
-            checkdefeat(DarthM);
+            checkdefeat(DarthM);};
         },
         lsvsob: function () {
+            if (this.health>0){
             Obi.health = (Obi.health - (this.attackpwr * i));
             this.health = (this.health - Obi.counter_attack);
             $(".gameAction").text("You attacked Obiwan Kenobi for  " + (this.attackpwr * i) + " damage." + " Obiwan Kenobi attacked you for " + Obi.counter_attack + " damage.");
             $("#LukeHealth").text(this.health);
             $("#ObiHealth").text(Obi.health);
             checkdeath(this);
-            checkdefeat(Obi);
+            checkdefeat(Obi);};
         },
         lsvsds: function () {
+            if (this.health>0){
             DarthS.health = (DarthS.health - (this.attackpwr * i));
             this.health = (this.health - DarthS.counter_attack);
             $(".gameAction").text("You attacked Darth Sidious for  " + (this.attackpwr * i) + " damage." + " Darth Sidious attacked you for " + DarthS.counter_attack + " damage.");
             $("#LukeHealth").text(this.health);
             $("#DSHealth").text(DarthS.health);
             checkdeath(this);
-            checkdefeat(DarthS);
+            checkdefeat(DarthS);};
         },
     };
 
@@ -181,31 +187,34 @@ $(document).ready(function () {
         health: 150,
         counter_attack: 20,
         dsvsdm: function () {
+            if (this.health>0){
             DarthM.health = (DarthM.health - (this.attackpwr * i));
             this.health = (this.health - DarthM.counter_attack);
             $(".gameAction").text("You attacked Darth Maul for  " + (this.attackpwr * i) + " damage." + " Darth Maul attacked you for " + DarthM.counter_attack + " damage.");
             $("#DSHealth").text(this.health);
             $("#DMHealth").text(DarthM.health);
             checkdeath(this);
-            checkdefeat(DarthM);
+            checkdefeat(DarthM);};
         },
         dsvsls: function () {
+            if (this.health>0){
             Luke.health = (Luke.health - (this.attackpwr * i));
             this.health = (this.health - Luke.counter_attack);
             $(".gameAction").text("You attacked Luke Skywalker for  " + (this.attackpwr * i) + " damage." + " Luke Skywalker attacked you for " + Luke.counter_attack + " damage.");
             $("#DSHealth").text(this.health);
             $("#LukeHealth").text(Luke.health);
             checkdeath(this);
-            checkdefeat(Luke);
+            checkdefeat(Luke);};
         },
         dsvsob: function () {
+            if (this.health>0){
             Obi.health = (Obi.health - (this.attackpwr * i));
             this.health = (this.health - Obi.counter_attack);
             $(".gameAction").text("You attacked Obiwan Kenobi for  " + (this.attackpwr * i) + " damage." + " Obiwan Kenobi attacked you for " + Obi.counter_attack + " damage.");
             $("#DSHealth").text(this.health);
             $("#ObiHealth").text(Obi.health);
             checkdeath(this);
-            checkdefeat(Obi);
+            checkdefeat(Obi);};
         },
     };
 
@@ -216,31 +225,34 @@ $(document).ready(function () {
         health: 180,
         counter_attack: 15,
         dmvsob: function () {
+            if (this.health>0){
             Obi.health = (Obi.health - (this.attackpwr * i));
             this.health = (this.health - Obi.counter_attack);
             $(".gameAction").text("You attacked Obiwan Kenobi for  " + (this.attackpwr * i) + " damage." + " Obiwan Kenobi attacked you for " + Obi.counter_attack + " damage.");
             $("#DMHealth").text(this.health);
             $("#ObiHealth").text(Obi.health);
             checkdeath(this);
-            checkdefeat(Obi);
+            checkdefeat(Obi);};
         },
         dmvsls: function () {
+            if (this.health>0){
             Luke.health = (Luke.health - (this.attackpwr * i));
             this.health = (this.health - Luke.counter_attack);
             $(".gameAction").text("You attacked Luke Skywalker for  " + (this.attackpwr * i) + " damage." + " Luke Skywalker attacked you for " + Luke.counter_attack + " damage.");
             $("#DMHealth").text(this.health);
             $("#LukeHealth").text(Luke.health);
             checkdeath(this);
-            checkdefeat(Luke);
+            checkdefeat(Luke);};
         },
         dmvsds: function () {
+            if (this.health>0){
             DarthS.health = (DarthS.health - (this.attackpwr * i));
             this.health = (this.health - DarthS.counter_attack);
             $(".gameAction").text("You attacked Darth Sidious for  " + (this.attackpwr * i) + " damage." + " Darth Sidious attacked you for " + DarthS.counter_attack + " damage.");
             $("#DMHealth").text(this.health);
             $("#DSHealth").text(DarthS.health);
             checkdeath(this);
-            checkdefeat(DarthS);
+            checkdefeat(DarthS);};
         }
 
     };
@@ -358,26 +370,6 @@ $(document).ready(function () {
 
 function resetfunc () {
     $(".resetb").on("click", function () {
-        // console.log("Reset button is working.");
-        // pickPlayer();
-        // $(".ObiCont").append(playerDiv);
-        // $(".ObiCont").children().css("visibility", "visible");
-        // $(".LukSkyCont").append(playerlDiv);
-        // $(".LukSkyCont").children().css("visibility", "visible");
-        // $(".DarSidCont").append(player3Div);
-        // $(".DarSidCont").children().css("visibility", "visible");
-        // $(".DarMauCont").append(player4Div);
-        // $(".DarMauCont").children().css("visibility", "visible");
-        // ObiH = 120;
-        // Obi.health = 120;
-        // Luke.health = 100;
-        // DarthS.health = 150;
-        // DarthM.health = 180;
-        // console.log(Obi.health);
-        // console.log(Luke.health);
-        // console.log(DarthM.health);
-        // console.log(DarthS.health);
-        // updatehealth();
         location.reload();
     })};
     
@@ -385,8 +377,8 @@ function resetfunc () {
   
 
 
-    function updatehealth () {
-    console.log("This is inside the reset function" + ObiH);
-}
-console.log("This is outside the reset function" + ObiH);
+//     function updatehealth () {
+//     console.log("This is inside the reset function" + ObiH);
+// }
+// console.log("This is outside the reset function" + ObiH);
 });
