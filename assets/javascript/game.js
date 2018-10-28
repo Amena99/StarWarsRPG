@@ -107,9 +107,9 @@ $(document).ready(function () {
     var Obi = {
         firstname: "Obiwan",
         lastname: "Kenobi",
-        attackpwr: 6,
-        health: 120,
-        counter_attack: 25,
+        attackpwr: 22,
+        health: 295,
+        counter_attack: 30,
         obvsdm: function () {
             if (this.health>0){
             DarthM.health = (DarthM.health - (this.attackpwr * i));
@@ -118,7 +118,9 @@ $(document).ready(function () {
             $("#ObiHealth").text(this.health);
             $("#DMHealth").text(DarthM.health);
             checkdeath(this);
-            checkdefeat(DarthM);};
+            checkdefeat(DarthM, Obi);
+            checkwin(Obi, Luke, DarthS, DarthM);
+        };
         },
         obvsls: function () {
             if (this.health>0){
@@ -128,7 +130,9 @@ $(document).ready(function () {
             $("#ObiHealth").text(this.health);
             $("#LukeHealth").text(Luke.health);
             checkdeath(this);
-            checkdefeat(Luke);};
+            checkdefeat(Luke, Obi);
+            checkwin(Obi, Luke, DarthS, DarthM);
+        };
         },
         obvsds: function () {
             if (this.health>0){
@@ -138,7 +142,9 @@ $(document).ready(function () {
             $("#ObiHealth").text(this.health);
             $("#DSHealth").text(DarthS.health);
             checkdeath(this);
-            checkdefeat(DarthS);};
+            checkdefeat(DarthS, Obi);
+            checkwin(Obi, Luke, DarthS, DarthM);
+        };
         },
     };
 
@@ -146,8 +152,8 @@ $(document).ready(function () {
         firstname: "Luke",
         lastname: "Skywalker",
         attackpwr: 15,
-        health: 100,
-        counter_attack: 40,
+        health: 265,
+        counter_attack: 30,
         lsvsdm: function () {
             if (this.health>0){
             DarthM.health = (DarthM.health - (this.attackpwr * i));
@@ -156,7 +162,9 @@ $(document).ready(function () {
             $("#LukeHealth").text(this.health);
             $("#DMHealth").text(DarthM.health);
             checkdeath(this);
-            checkdefeat(DarthM);};
+            checkdefeat(DarthM, Luke);
+            checkwin(Luke, DarthS, Obi, DarthM);
+        };
         },
         lsvsob: function () {
             if (this.health>0){
@@ -166,7 +174,9 @@ $(document).ready(function () {
             $("#LukeHealth").text(this.health);
             $("#ObiHealth").text(Obi.health);
             checkdeath(this);
-            checkdefeat(Obi);};
+            checkdefeat(Obi, Luke);
+            checkwin(Luke, DarthS, Obi, DarthM);
+        };
         },
         lsvsds: function () {
             if (this.health>0){
@@ -176,16 +186,18 @@ $(document).ready(function () {
             $("#LukeHealth").text(this.health);
             $("#DSHealth").text(DarthS.health);
             checkdeath(this);
-            checkdefeat(DarthS);};
+            checkdefeat(DarthS, Luke);
+            checkwin(Luke, DarthS, Obi, DarthM);
+        };
         },
     };
 
     var DarthS = {
         firstname: "Darth",
         lastname: "Sidious",
-        attackpwr: 10,
-        health: 150,
-        counter_attack: 20,
+        attackpwr: 20,
+        health: 290,
+        counter_attack: 15,
         dsvsdm: function () {
             if (this.health>0){
             DarthM.health = (DarthM.health - (this.attackpwr * i));
@@ -194,7 +206,9 @@ $(document).ready(function () {
             $("#DSHealth").text(this.health);
             $("#DMHealth").text(DarthM.health);
             checkdeath(this);
-            checkdefeat(DarthM);};
+            checkdefeat(DarthM, DarthS);
+            checkwin(DarthS, Obi, Luke, DarthM);
+        };
         },
         dsvsls: function () {
             if (this.health>0){
@@ -204,7 +218,9 @@ $(document).ready(function () {
             $("#DSHealth").text(this.health);
             $("#LukeHealth").text(Luke.health);
             checkdeath(this);
-            checkdefeat(Luke);};
+            checkdefeat(Luke, DarthS);
+            checkwin(DarthS, Obi, Luke, DarthM);
+        };
         },
         dsvsob: function () {
             if (this.health>0){
@@ -214,16 +230,18 @@ $(document).ready(function () {
             $("#DSHealth").text(this.health);
             $("#ObiHealth").text(Obi.health);
             checkdeath(this);
-            checkdefeat(Obi);};
+            checkdefeat(Obi, DarthS);
+            checkwin(DarthS, Obi, Luke, DarthM);
+        };
         },
     };
 
     var DarthM = {
         firstname: "Darth",
         lastname: "Maul",
-        attackpwr: 13,
-        health: 180,
-        counter_attack: 15,
+        attackpwr: 12,
+        health: 280,
+        counter_attack: 25,
         dmvsob: function () {
             if (this.health>0){
             Obi.health = (Obi.health - (this.attackpwr * i));
@@ -232,7 +250,9 @@ $(document).ready(function () {
             $("#DMHealth").text(this.health);
             $("#ObiHealth").text(Obi.health);
             checkdeath(this);
-            checkdefeat(Obi);};
+            checkdefeat(Obi, DarthM);
+            checkwin(DarthM, Obi, Luke, DarthS);
+        };
         },
         dmvsls: function () {
             if (this.health>0){
@@ -242,7 +262,8 @@ $(document).ready(function () {
             $("#DMHealth").text(this.health);
             $("#LukeHealth").text(Luke.health);
             checkdeath(this);
-            checkdefeat(Luke);};
+            checkdefeat(Luke, DarthM);
+            checkwin(DarthM, Obi, Luke, DarthS)};
         },
         dmvsds: function () {
             if (this.health>0){
@@ -252,7 +273,8 @@ $(document).ready(function () {
             $("#DMHealth").text(this.health);
             $("#DSHealth").text(DarthS.health);
             checkdeath(this);
-            checkdefeat(DarthS);};
+            checkdefeat(DarthS, DarthM);
+            checkwin(DarthM, Obi, Luke, DarthS);};
         }
 
     };
@@ -341,8 +363,8 @@ $(document).ready(function () {
         }
     };
 
-    function checkdefeat(enemy) {
-        if (enemy.health < 1) {
+    function checkdefeat(enemy, fighter) {
+        if (enemy.health < 1 && fighter.health>0) {
             $(".gameAction").text("You have defeated " + enemy.firstname + " " + enemy.lastname + "! ");
             attackswitch = false;
             disappear();
@@ -367,6 +389,13 @@ $(document).ready(function () {
             $(".DarMauCont").children().css("visibility", "hidden");
         }
     };
+
+    function checkwin (playerw, playerx, playery, playerz) {
+        if (playerw.health>0 && playerx.health<1 && playery.health<1 && playerz.health<1){
+            $(".gameAction").text("You have defeated all your enemies. YOU WIN!! ");
+        console.log("playerw, playerx, playery, playerz");
+        }
+    }
 
 function resetfunc () {
     $(".resetb").on("click", function () {
