@@ -1,28 +1,25 @@
 
+
+// Declaration of Global Variables
 var playerDiv = $("<div>");
 var playerlDiv = $("<div>");
 var player3Div = $("<div>");
 var player4Div = $("<div>");
 var i = 1;
 var attackswitch = true;
-var ObiH = 0;
 
+// Document Ready Function
 $(document).ready(function () {
 
-
-
-    //function that moves player and defender into correct places
+//Function that moves characters into either player or defender positions when player clicks each card.
     function pickPlayer() {
 
-
         $("#ObiWan").on("click", function () {
-
             console.log("This click is working.");
             if ($("#playerlocation").html() == "") {
                 console.log("Entered ObiWan if");
                 playerDiv.append($(this));
                 $("#playerlocation").append(playerDiv);
-                // playerDiv.addclass("inplay");
                 $(".toptext").text("Select an Enemy to Attack:");
             }
             else {
@@ -99,11 +96,15 @@ $(document).ready(function () {
                 }
             }
         });
-
+//Reset function that fires if "Play Again" button is clicked.
+//Resets all character values and all cards to original positions. 
         resetfunc();
     };
 
-
+//Objects that contain each character's main properties. 
+//Each object contains a method for playing against each of the other three opponents. 
+//I realized after completing this project that there must a more modular way of writing out the 
+//fight sequence code. I could not explore that in time contraints of this week, but hope to do so in the future.
     var Obi = {
         firstname: "Obiwan",
         lastname: "Kenobi",
@@ -278,15 +279,15 @@ $(document).ready(function () {
         }
 
     };
+    //Pushing the property of health into the HTML of each player's card. 
     $("#ObiHealth").text(Obi.health);
     $("#LukeHealth").text(Luke.health);
     $("#DSHealth").text(DarthS.health);
     $("#DMHealth").text(DarthM.health);
-    // console.log(DarthS);
-    // console.log(Luke);
-    // console.log(Obi);
-    // console.log(DarthM);
 
+//Functions that perform the main tasks of the game.
+    
+//Attack: Check to see which combination of player vs. opponent is in play and run the method for that fight sequence. 
     function attack() {
         $("#attackb").on("click", function () {
             console.log("This attack button is working.");
@@ -355,14 +356,14 @@ $(document).ready(function () {
         })
     };
     attack();
-
+//Checkdeath: Check to see if player's points have depleted. Issue a losing message if true. 
     function checkdeath(fighter) {
         if (fighter.health < 1) {
             $(".gameAction").text("You have depleted health. You lose!");
             attackwitch = false;
         }
     };
-
+//Checkdefeat: Check to see if opponent has been defeated while player still has health. Issue a defeated message if true.
     function checkdefeat(enemy, fighter) {
         if (enemy.health < 1 && fighter.health>0) {
             $(".gameAction").text("You have defeated " + enemy.firstname + " " + enemy.lastname + "! ");
@@ -370,7 +371,7 @@ $(document).ready(function () {
             disappear();
         }
     };
-
+//Disappear: Hide the opponent div once the opponent has been defeated. 
     function disappear() {
         if (Obi.health < 1 && $("#enemylocation").find(playerDiv).length == 1) {
             $(".ObiCont").append(playerDiv);
@@ -389,25 +390,18 @@ $(document).ready(function () {
             $(".DarMauCont").children().css("visibility", "hidden");
         }
     };
-
+//Checkwin: Check opponents' and player's health to see if player has won. Issue winning message if true. 
     function checkwin (playerw, playerx, playery, playerz) {
         if (playerw.health>0 && playerx.health<1 && playery.health<1 && playerz.health<1){
             $(".gameAction").text("You have defeated all your enemies. YOU WIN!! ");
         console.log("playerw, playerx, playery, playerz");
         }
     }
-
+//Reset all values and card positions to play again. 
 function resetfunc () {
     $(".resetb").on("click", function () {
         location.reload();
     })};
     
     pickPlayer();
-  
-
-
-//     function updatehealth () {
-//     console.log("This is inside the reset function" + ObiH);
-// }
-// console.log("This is outside the reset function" + ObiH);
 });
