@@ -3,4 +3,3 @@ This game is built with basic foundations of JQuery and JavaScript. The player b
 
 The program utilizes JavaScript objects to store characters' properties such as health points, attack power, and counter attack power. Each fight combination is a method in the character's object. By utilizing multiple functions the program tracks and health points, attack power, and checks for defeats and wins. 
 
-This program was authored by Amena Ahmed. 
